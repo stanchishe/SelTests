@@ -3,7 +3,6 @@ package org.example;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class ImplicitWait {
 
