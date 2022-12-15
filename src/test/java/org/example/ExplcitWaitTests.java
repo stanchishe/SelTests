@@ -1,10 +1,7 @@
 package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -20,6 +17,12 @@ public class ExplcitWaitTests {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("Start-Maximized");
         webDriver = new ChromeDriver(options);
+    }
+
+    @AfterAll
+    public static void closeEnv(){
+        webDriver.close();
+        webDriver.quit();
     }
 
     @Test
