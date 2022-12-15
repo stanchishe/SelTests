@@ -6,15 +6,17 @@ import java.time.Duration;
 
 public class ImplicitWait {
 
-    private WebDriver driver;
+    private WebDriver webDriver;
+    private long timeToWait;
 
-    public ImplicitWait (WebDriver driver) {
-        this.driver = driver;
+    public ImplicitWait (WebDriver webDriver, long timeToWait) {
+        this.webDriver = webDriver;
+        this.timeToWait = timeToWait;
     }
 
     public String impWait() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://reqres.in/api/users?delay=9");
-        return driver.getPageSource();
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeToWait));
+        webDriver.get("https://reqres.in/api/users?delay=9");
+        return webDriver.getPageSource();
     }
 }
